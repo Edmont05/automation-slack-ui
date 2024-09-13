@@ -7,10 +7,16 @@ class AddUserForm {
     usersSwitch = myByCss('input[aria-label="Agregar automáticamente a cualquier persona que se una a Personal"]')
     omitButton = myByCss('button[data-qa="invite_to_workspace_skip_button"]')
 
+    omitButton = myByCss('button[data-qa="invite_to_workspace_skip_button"]')
+
     
     async isVisible() {
         await untilIsLocated(this.usersInput);
         await untilIsLocated(this.usersSwitch);
+        await untilIsLocated(this.omitButton);
+    }
+    async isVisiblePrivate() {
+        await untilIsLocated(this.usersInput);
         await untilIsLocated(this.omitButton);
     }
 

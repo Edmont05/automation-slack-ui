@@ -33,13 +33,13 @@ describe('Test 1', function () {
         await MainPage.clickOptionChannel();
 
         await CreateForm.isVisible();
-        await CreateForm.setNameChannel("edmont");
+        await CreateForm.setNameChannel("private");
         await CreateForm.clickNext();
-        await CreateForm.clickPublicOption();
+        await CreateForm.clickPrivateOption();
         await CreateForm.clickCreate();
 
 
-        await AddUserForm.isVisible();
+        await AddUserForm.isVisiblePrivate();
         await AddUserForm.clickOmit();
 
     })

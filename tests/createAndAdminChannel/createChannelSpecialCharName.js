@@ -8,7 +8,7 @@ const MainPage = require('../../main/pages/mainPage');
 const CreateForm = require('../../main/pages/createForm');
 const AddUserForm = require('../../main/pages/addUserForm');
 
-describe('Test 1', function () {
+describe('Test 3', function () {
     this.timeout(50000);
     before(async () => {
         await myBefore();
@@ -33,14 +33,8 @@ describe('Test 1', function () {
         await MainPage.clickOptionChannel();
 
         await CreateForm.isVisible();
-        await CreateForm.setNameChannel("edmont");
-        await CreateForm.clickNext();
-        await CreateForm.clickPublicOption();
-        await CreateForm.clickCreate();
-
-
-        await AddUserForm.isVisible();
-        await AddUserForm.clickOmit();
+        await CreateForm.setNameChannel("#Edmont");
+        await CreateForm.visibleError();
 
     })
 });

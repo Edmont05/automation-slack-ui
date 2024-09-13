@@ -5,6 +5,7 @@ const { myByCss } = require("../../core/interactions/myBy");
 class CreateForm {
     nameChannelInput = myByCss('input[data-qa="channel-name-input"]')
     nextButton = myByCss('button[data-qa="create-channel-next-button"]')
+    errorMessage = myByCss('div[data-qa-error="true"]')
 
     publicOption = myByCss('input[data-qa="public-option"]')
     privateOption = myByCss('input[data-qa="private-option"]')
@@ -25,6 +26,10 @@ class CreateForm {
     async clickNext() {
         await untilIsVisible(this.nextButton)
         await clickOn(this.nextButton)
+    }
+
+    async visibleError() {
+        await untilIsVisible(this.errorMessage)
     }
     
 
