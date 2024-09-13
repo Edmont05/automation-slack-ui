@@ -7,8 +7,10 @@ const { myBefore, myAfter, myAfterScreen } = require('../../main/hooks');
 const MainPage = require('../../main/pages/mainPage');
 const CreateForm = require('../../main/pages/createForm');
 const AddUserForm = require('../../main/pages/addUserForm');
+const SettingChannelForm = require('../../main/pages/SettingChannelForm');
+const ChannelPage = require('../../main/pages/ChannelPage');
 
-describe('Test 5', function () {
+describe('Test 10', function () {
     this.timeout(50000);
     before(async () => {
         await myBefore();
@@ -29,18 +31,13 @@ describe('Test 5', function () {
         await LoginPage.clickLinkSlack();
 
         await MainPage.isVisible();
-        await MainPage.clickCreateNew();
-        await MainPage.clickOptionChannel();
+        await MainPage.clickRightChannel();
+        await MainPage.clickMoreInfoChannel();
 
-        await CreateForm.isVisible();
-        await CreateForm.setNameChannel("private");
-        await CreateForm.clickNext();
-        await CreateForm.clickPrivateOption();
-        await CreateForm.clickCreate();
-
-
-        await AddUserForm.isVisiblePrivate();
-        await AddUserForm.clickOmit();
+        await SettingChannelForm.isVisible();
+        await SettingChannelForm.clickMembersTab();
+        await SettingChannelForm.setAddUser("201900842");
+        await SettingChannelForm.userCompatibility();
 
     })
 });

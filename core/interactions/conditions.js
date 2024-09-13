@@ -46,6 +46,35 @@ exports.untilIsVisible = async (locator) => {
 
 /**
  * 
+ * 
+ * @param {By} locator 
+ */
+exports.untilElementDoesNotExist = async (locator) => {
+    myLogger.info(`Checking if element does NOT exist with locator: ${locator.value}`);
+
+    const driver = DriverFactory.myDriver;
+
+    try {
+        // Intentamos encontrar los elementos
+        const elements = await driver.findElements(locator);
+
+        // Si no hay elementos, significa que no existe
+        if (elements.length === 0) {
+            myLogger.info(`Element with locator: ${locator.value} does not exist in the DOM.`);
+            return true;  // El elemento no existe
+        } else {
+            myLogger.info(`Element with locator: ${locator.value} is still present in the DOM.`);
+            return false;  // El elemento aún existe
+        }
+    } catch (error) {
+        // Si ocurre otro error, lo lanzamos
+        myLogger.error(`Error while checking if element does not exist: ${error}`);
+        throw error;
+    }
+};
+
+/**
+ * 
  * @param {By} locator 
  */
 exports.waitUntilElementsStops = async (locator) => {

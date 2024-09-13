@@ -14,19 +14,16 @@ class LoginPage {
         await untilIsLocated(this.passwordInput)
         await untilIsLocated(this.loginButton)
     }
-
     async setCredentials(username, password) {
         await untilIsVisible(this.usernameInput);
         await untilIsVisible(this.passwordInput);
         await setValue(this.usernameInput, username);
         await setValue(this.passwordInput, password)
     }
-
     async clickLoginButton() {
         await untilIsVisible(this.loginButton)
         await clickOn(this.loginButton)
     }
-
     async clickLinkSlack() {
         await untilIsVisible(this.slackWebLink)
         await clickOn(this.slackWebLink)

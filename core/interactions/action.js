@@ -1,6 +1,6 @@
 const { By, Key } = require("selenium-webdriver");
 const myLogger = require("../tools/myLogger");
-const { myFindElement, myFindElements } = require("./conditions");
+const { myFindElement } = require("./conditions");
 
 /**
  * 
@@ -11,6 +11,20 @@ exports.clickOn = async (locator) => {
     myLogger.info(`Clicking element: ${locator.value}`);
     await element.click();
 }
+
+/**
+ * 
+ * @param {By} locator 
+ */
+exports.rightClickOn = async (locator) => {
+    const element = await myFindElement(locator);
+    myLogger.info(`Performing right-click on element: ${locator.value}`);
+
+    const driver = element.getDriver(); // Obtener la instancia del WebDriver desde el elemento
+    await driver.actions().contextClick(element).perform(); // Ejecutar la secuencia de acciones para clic derecho
+};
+
+
 
 /**
  * 
@@ -44,6 +58,17 @@ exports.pressEnter = async (locator) => {
     const element = await myFindElement(locator);
     myLogger.info(`Pressing Enter on locator: ${locator.value}`);
     await element.sendKeys(Key.ENTER);
+};
+
+
+/**
+ * 
+ * @param {By} locator 
+ */
+exports.pressRightArrow = async (locator) => {
+    const element = await myFindElement(locator);
+    myLogger.info(`Pressing Right Arrow on locator: ${locator.value}`);
+    await element.sendKeys(Key.ARROW_RIGHT); 
 };
 
 /**

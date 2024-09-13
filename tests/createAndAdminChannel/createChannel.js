@@ -33,7 +33,7 @@ describe('Test 1', function () {
         await MainPage.clickOptionChannel();
 
         await CreateForm.isVisible();
-        await CreateForm.setNameChannel("edmont");
+        await CreateForm.setNameChannel("edmont2");
         await CreateForm.clickNext();
         await CreateForm.clickPublicOption();
         await CreateForm.clickCreate();
