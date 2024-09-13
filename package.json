@@ -1,0 +1,23 @@
+{
+  "name": "automation-slack-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha 'tests/**/*.js' "
+  },
+  "dependencies": {
+    "chromedriver": "^127.0.0",
+    "selenium-webdriver": "^4.23.0",
+    "winston": "^3.13.1"
+  },
+  "devDependencies": {
+    "allure-commandline": "^2.30.0",
+    "allure-mocha": "^3.0.0-beta.9",
+    "chai": "^4.5.0",
+    "mocha": "^10.7.3",
+    "mocha-tags": "^1.0.1"
+  },
+  "author": "",
+  "license": "ISC"
+}
