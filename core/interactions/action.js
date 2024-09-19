@@ -37,6 +37,29 @@ exports.setValue = async (locator, value) => {
     await element.sendKeys(value);
 }
 
+// /**
+//  * 
+//  * @param {By} locator 
+//  * @param {String} value 
+//  */
+// exports.setCleanValue = async (locator, value) => {
+//     const element = await myFindElement(locator);
+//     myLogger.info(`Setting value ${value} on locater ${locator.value}`);
+//     await element.sendKeys(Key.chord(Key.CONTROL, "a"));
+//     await element.sendKeys(value);
+// }
+
+/**
+ * 
+ * @param {By} locator 
+ */
+exports.setCleanValue = async (locator) => {
+    const element = await myFindElement(locator);
+    myLogger.info(`Setting value on locater ${locator.value}`);
+    await element.sendKeys(Key.chord(Key.CONTROL, "a"));
+    await element.sendKeys(Key.BACK_SPACE);
+}
+
 /**
  * 
  * @param {By} locator 

@@ -44,6 +44,24 @@ exports.untilIsVisible = async (locator) => {
     await DriverFactory.myDriver.wait(until.elementIsVisible(element));
 };
 
+exports.findUntilIsVisible = async (locator, timeout = 1000) => {
+    try {
+        // Localizar el elemento
+        const element = await this.myFindElement(locator);
+
+        // Esperar a que el elemento sea visible dentro del tiempo límite
+        await DriverFactory.myDriver.wait(until.elementIsVisible(element), timeout);
+
+        // Si el elemento es visible, retornar sin errores
+        myLogger.info(`Elemento visible: ${locator.value}`);
+        return element;
+    } catch (error) {
+        // Si ocurre un error, lanzar una excepción explícitamente
+        myLogger.error(`Error: No se pudo encontrar o hacer visible el elemento con el locator ${locator.value} en el tiempo de espera.`);
+        throw new Error(`El elemento con el locator ${locator.value} no es visible dentro del tiempo permitido.`);
+    }
+};
+
 /**
  * 
  * 

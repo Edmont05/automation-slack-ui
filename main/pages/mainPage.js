@@ -7,7 +7,8 @@ class MainPage {
     iconHome = myByCss('[data-qa="tab_rail_home_button"]')
     iconCreateNew = myByCss('button.p-control_strip__create_button[data-qa="unstyled-button"]')
     optionChannel = myByCss('button[aria-labelledby="create-channels-label"]')
-
+    message = myByCss('[data-qa="message_container"]')
+    
     async clickCreateNew() {
         await untilIsVisible(this.iconCreateNew)
         await clickOn(this.iconCreateNew)
@@ -53,6 +54,16 @@ class MainPage {
         await untilIsVisible(this.channel)
         await clickOn(this.channel)
     }
+    async clickNameChannel(nameChannel) {
+        let name =  myByCss(`span[data-qa="channel_sidebar_name_${nameChannel}"]`);
+        await untilIsVisible(name)
+        await clickOn(name)
+    }
+    async clickRightNameChannel(nameChannel) {
+        let name =  myByCss(`span[data-qa="channel_sidebar_name_${nameChannel}"]`);
+        await untilIsVisible(name)
+        await rightClickOn(name)
+    }
     async clickRightChannel() {
         await untilIsVisible(this.channel);
         await rightClickOn(this.channel);
@@ -95,7 +106,9 @@ class MainPage {
     // General
     async isVisible() {
         await untilIsLocated(this.iconHome)
-        await untilIsLocated(this.iconCreateNew)
+    }
+    async isVisibleMessages() {
+        await untilIsLocated(this.message)
     }
     async isNotVisibleChannel() {
         await untilIsNotVisible(this.channel)
