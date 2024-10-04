@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha 'tests/**/*.js' "
+    "test": "mocha 'tests/**/*.js' ",
+    "allure:generate": "allure generate allure-results -o allure-report",
+    "allure:open": "allure open allure-report"
   },
   "dependencies": {
     "chromedriver": "^127.0.0",

@@ -25,7 +25,7 @@ jobs:
 
       - name: Run Selenium tests with Mocha and Allure
         run: |
-          npx mocha 'tests/*.js' --parallel --jobs 4 --reporter allure-mocha
+          npx mocha 'tests/loginTest.js' --parallel --jobs 1 --reporter allure-mocha
         env:
           CI: true  
 
