@@ -18,16 +18,19 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'  
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
 
       - name: Run Selenium tests with Mocha and Allure
         run: |
-          npx mocha 'tests/loginTest.js' --parallel --jobs 1 --reporter allure-mocha
+          npx mocha 'tests/loginTest.js' --reporter allure-mocha --reporter-options allureResults=allure-results
         env:
-          CI: true  
+          CI: true
+
+      - name: Check Allure results
+        run: ls -la allure-results
 
       - name: Get Allure history
         uses: actions/checkout@v4
