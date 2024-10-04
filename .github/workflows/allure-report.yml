@@ -28,6 +28,7 @@ jobs:
           npx mocha 'tests/createAndAdminChannel/*.js' --reporter allure-mocha --reporter-options allureResults=allure-results
         env:
           CI: true
+        continue-on-error: true
 
       - name: Check Allure results
         run: ls -la allure-results
@@ -40,9 +41,11 @@ jobs:
         continue-on-error: true
 
       - name: Generate Allure report
+        if: always()  
         run: npm run allure:generate -- --clean
 
       - name: Allure Report action from marketplace
+        if: always()  
         uses: simple-elf/allure-report-action@v1.7
         with:
           allure_results: allure-results
@@ -50,7 +53,7 @@ jobs:
           allure_history: allure-history
 
       - name: Deploy report to GitHub Pages
-        if: always()
+        if: always() 
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GH_PAT }}
