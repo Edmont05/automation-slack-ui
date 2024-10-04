@@ -7,6 +7,7 @@ const { myBefore, myAfter, myAfterScreen } = require('../../main/hooks');
 const MainPage = require('../../main/pages/mainPage');
 const CreateForm = require('../../main/pages/createForm');
 const AddUserForm = require('../../main/pages/addUserForm');
+const SettingChannelForm = require('../../main/pages/SettingChannelForm');
 
 describe('Test 1', function () {
     this.timeout(50000);
@@ -19,6 +20,15 @@ describe('Test 1', function () {
     });
 
     after(async () => {
+        // await MainPage.isVisible();
+        // await MainPage.clickRightNameChannel('edmont2');
+        // await MainPage.clickMoreInfoChannel();
+
+        // await SettingChannelForm.isVisible();
+        // await SettingChannelForm.clickSettingTab();
+        // await SettingChannelForm.clickdeleteChannelButton();
+        // await SettingChannelForm.clickacceptedeleteChannelCheck();
+        // await SettingChannelForm.clickconfirmdeleteChannelButton();
         await myAfter();
     });
 
@@ -33,13 +43,12 @@ describe('Test 1', function () {
         await MainPage.clickOptionChannel();
 
         await CreateForm.isVisible();
-        await CreateForm.setNameChannel("edmont2");
+        await CreateForm.setNameChannel("newChannel4");
         await CreateForm.clickNext();
         await CreateForm.clickPublicOption();
         await CreateForm.clickCreate();
 
 
-        await AddUserForm.isVisible();
         await AddUserForm.clickOmit();
 
     })

@@ -9,7 +9,7 @@ const CreateForm = require('../../main/pages/createForm');
 const AddUserForm = require('../../main/pages/addUserForm');
 const SettingChannelForm = require('../../main/pages/SettingChannelForm');
 
-describe('Test 24', function () {
+describe('Test 32', function () {
     this.timeout(50000);
     before(async () => {
         await myBefore();
@@ -20,7 +20,7 @@ describe('Test 24', function () {
     });
 
     after(async () => {
-        // await myAfter();
+        await myAfter();
     });
 
     tags('e2e').it('Test', async () => {
@@ -31,15 +31,7 @@ describe('Test 24', function () {
 
         await MainPage.isVisible();
         await MainPage.clickRightNameChannel('edmont2');
-        await MainPage.clickMoreInfoChannel();
-
-        await SettingChannelForm.isVisible();
-        await SettingChannelForm.clickSettingTab();
-        await SettingChannelForm.clickchangePrivateChannelButton();
-        await SettingChannelForm.clickchangePropertyChannel();
-        // await SettingChannelForm.setinputEditDescripcionChannel('edit');
-        // await SettingChannelForm.clickbuttonSaveEditDescripcionChannel();
-        // await SettingChannelForm.isVisible();
-
+        await MainPage.clickSilenceChannel();
+        await MainPage.isVisible();
     })
 });

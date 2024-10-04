@@ -1,10 +1,11 @@
 const { untilIsLocated, untilIsVisible, reloadAndWaitForElement } = require("../../core/interactions/conditions");
-const { clickOn, setValue } = require("../../core/interactions/action");
+const { clickOn, setValue, sleep } = require("../../core/interactions/action");
 const { myByCss } = require("../../core/interactions/myBy");
 
 class CreateForm {
     nameChannelInput = myByCss('input[data-qa="channel-name-input"]')
     nextButton = myByCss('button[data-qa="create-channel-next-button"]')
+    
     errorMessage = myByCss('div[data-qa-error="true"]')
 
     publicOption = myByCss('input[data-qa="public-option"]')
@@ -21,6 +22,7 @@ class CreateForm {
     async setNameChannel(name) {
         await untilIsVisible(this.nameChannelInput);
         await setValue(this.nameChannelInput, name);
+        await sleep(1000);
     }
     async clickNext() {
         await untilIsVisible(this.nextButton)

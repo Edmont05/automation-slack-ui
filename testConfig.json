@@ -3,5 +3,9 @@
     "credentials": {
         "username": "montanoeddy1120@gmail.com",
         "password": "quererespoder"
+    },
+    "credentialsGuest": {
+        "username": "201900842@est.umss.edu",
+        "password": "quererespoder"
     }
 }

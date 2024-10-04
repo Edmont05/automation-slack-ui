@@ -48,6 +48,7 @@ class MainPage {
     silenceChannel = myByCss('button[data-qa="channel_ctx_menu_mute"]')
     notificationsChannel = myByCss('button[data-qa="channel_ctx_menu_change_notifications"]')
     addToFavoriteChannel = myByCss('button[data-qa="channel_ctx_menu_star"]')
+    removeToFavoriteChannel = myByCss('button[data-qa="channel_ctx_menu_unstar"]')
     leaveChannel = myByCss('button[data-qa="channel_ctx_menu_leave"]')
 
     async clickChannel() {
@@ -91,6 +92,10 @@ class MainPage {
     async clickAddToFavoriteChannel() {
         await untilIsVisible(this.addToFavoriteChannel)
         await clickOn(this.addToFavoriteChannel)
+    }
+    async clickremoveToFavoriteChannel() {
+        await untilIsVisible(this.removeToFavoriteChannel)
+        await clickOn(this.removeToFavoriteChannel)
     }
     async clickLeaveChannel() {
         await untilIsVisible(this.leaveChannel)

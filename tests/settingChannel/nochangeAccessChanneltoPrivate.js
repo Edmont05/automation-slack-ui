@@ -9,7 +9,7 @@ const CreateForm = require('../../main/pages/createForm');
 const AddUserForm = require('../../main/pages/addUserForm');
 const SettingChannelForm = require('../../main/pages/SettingChannelForm');
 
-describe('Test 27', function () {
+describe('Test 30', function () {
     this.timeout(50000);
     before(async () => {
         await myBefore();
@@ -20,11 +20,12 @@ describe('Test 27', function () {
     });
 
     after(async () => {
-        // await myAfter();
+        await myAfter();
     });
+
     tags('e2e').it('Test', async () => {
         await LoginPage.isVisible();
-        await LoginPage.setCredentials(testConfig.credentials.username, testConfig.credentials.password);
+        await LoginPage.setCredentials(testConfig.credentialsGuest.username, testConfig.credentialsGuest.password);
         await LoginPage.clickLoginButton();
         await LoginPage.clickLinkSlack();
 
@@ -32,12 +33,15 @@ describe('Test 27', function () {
         await MainPage.clickRightNameChannel('edmont2');
         await MainPage.clickMoreInfoChannel();
 
-        await SettingChannelForm.isVisible();
-        await SettingChannelForm.clickIconCallChannelButton();
-        await SettingChannelForm.clickcopyLinkButtonChannelButton();
-        // await SettingChannelForm.isVisible();
+        await SettingChannelForm.isVisibleGuest();
+        await SettingChannelForm.clickSettingTab();
+        // await SettingChannelForm.clickchangePrivateChannelButton();
+        // await SettingChannelForm.clickchangePropertyChannel();
 
-        // await verifyClipboardHasContent();
+
+        // await SettingChannelForm.setinputEditDescripcionChannel('edit');
+        // await SettingChannelForm.clickbuttonSaveEditDescripcionChannel();
+        // await SettingChannelForm.isVisible();
 
     })
 });

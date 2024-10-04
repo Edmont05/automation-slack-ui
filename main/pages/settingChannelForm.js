@@ -9,7 +9,6 @@ class SettingChannelForm {
     detailTab = myByCss('button[data-qa="channel_details_tabs_tab"]')
     integrationTab = myByCss('button[data-qa="channel_details_integrations_tab"]')
     settingTab = myByCss('button[data-qa="channel_details_settings_tab"]')
-
     iconFavoriteChannelButton = myByCss('button[data-qa="channel-header-star-button"]')
     notificationChannelSelect = myByCss('button[data-qa="control_button"]')
 
@@ -41,6 +40,17 @@ class SettingChannelForm {
         await untilIsLocated(this.iconFavoriteChannelButton);
         await untilIsLocated(this.notificationChannelSelect);
         await untilIsLocated(this.iconCallChannelButton);
+    }
+    async isVisibleGuest() {
+        await untilIsLocated(this.aboutTab);
+        await untilIsLocated(this.membersTab);
+        await untilIsLocated(this.detailTab);
+        await untilIsLocated(this.integrationTab);
+        await untilIsLocated(this.settingTab);
+
+        // await untilIsLocated(this.iconFavoriteChannelButton);
+        // await untilIsLocated(this.notificationChannelSelect);
+        // await untilIsLocated(this.iconCallChannelButton);
     }
 
 
@@ -211,12 +221,16 @@ class SettingChannelForm {
     canceldeleteChannelButton = myByCss('button[class="c-button c-button--outline c-button--medium"]')
     convertdeleteChannelButton = myByCss('button[class="c-button c-button--danger c-button--medium"]')
 
+    
     changePrivateChannelButton = myByCss('body > div:nth-child(24) > div > div > div.c-sk-modal_footer > div > button.c-button.c-button--danger.c-button--medium')
     changePublicChannelButton = myByCss('body > div:nth-child(26) > div > div > div.c-sk-modal_footer > div > button.c-button.c-button--primary.c-button--medium')
+    changePublicChannelButton2 = myByCss('button[data-qa="private-to-public-modal-convert-btn"]')
+    changearchiveChannelButton = myByCss('button[data-qa="archive_modal_go"]')
+
     async clickchangePrivateChannelButton() {
         await findUntilIsVisible(this.changeChannelButton)
         await clickOn(this.changeChannelButton)
-        
+
     }
     async clickarchiveChannelButton() {
         await untilIsVisible(this.archiveChannelButton)
@@ -243,7 +257,22 @@ class SettingChannelForm {
             await clickOn(this.changePublicChannelButton)
         }
     }
+    async clickchangePropertyChanneltoPublic() {
+        await findUntilIsVisible(this.changePublicChannelButton2)
+        await clickOn(this.changePublicChannelButton2)
 
+    }
+    async clickchangearchiveChannelButton() {
+        await findUntilIsVisible(this.changearchiveChannelButton)
+        await clickOn(this.changearchiveChannelButton)
+
+    }
+    async isnotchangePrivateChannelButton() {
+        await untilElementDoesNotExist(this.changeChannelButton)
+        // await clickOn(this.changeChannelButton)
+
+    }
+    
     // async setAddUser(email) {
     //     await untilIsVisible(this.usersInput);
     //     await setValue(this.usersInput, email);

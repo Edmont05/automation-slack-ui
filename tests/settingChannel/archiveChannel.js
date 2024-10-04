@@ -9,7 +9,7 @@ const CreateForm = require('../../main/pages/createForm');
 const AddUserForm = require('../../main/pages/addUserForm');
 const SettingChannelForm = require('../../main/pages/SettingChannelForm');
 
-describe('Test 27', function () {
+describe('Test 31', function () {
     this.timeout(50000);
     before(async () => {
         await myBefore();
@@ -20,8 +20,9 @@ describe('Test 27', function () {
     });
 
     after(async () => {
-        // await myAfter();
+        await myAfter();
     });
+
     tags('e2e').it('Test', async () => {
         await LoginPage.isVisible();
         await LoginPage.setCredentials(testConfig.credentials.username, testConfig.credentials.password);
@@ -33,11 +34,14 @@ describe('Test 27', function () {
         await MainPage.clickMoreInfoChannel();
 
         await SettingChannelForm.isVisible();
-        await SettingChannelForm.clickIconCallChannelButton();
-        await SettingChannelForm.clickcopyLinkButtonChannelButton();
-        // await SettingChannelForm.isVisible();
+        await SettingChannelForm.clickSettingTab();
+        await SettingChannelForm.clickarchiveChannelButton();
+        await SettingChannelForm.clickchangearchiveChannelButton();
 
-        // await verifyClipboardHasContent();
+        await MainPage.isVisible();
+        // await SettingChannelForm.setinputEditDescripcionChannel('edit');
+        // await SettingChannelForm.clickbuttonSaveEditDescripcionChannel();
+        // await SettingChannelForm.isVisible();
 
     })
 });
