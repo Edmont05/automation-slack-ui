@@ -2,6 +2,7 @@ const {
   untilIsLocated,
   untilIsVisible,
   untilIsEnabled,
+  removeElement,
 } = require("../../core/interactions/conditions");
 const { clickOn, setValue, sleep, getText } = require("../../core/interactions/action");
 const { myByCss } = require("../../core/interactions/myBy");
@@ -39,7 +40,7 @@ class CreateForm {
     await setValue(this.nameChannelInput, name);
   }
   async clickNext() {
-    //await removeElement(this.optionsModal)
+   // await removeElement(this.optionsModal)
     await untilIsVisible(this.nextButton);
     await untilIsEnabled(this.nextButton);
     await clickOn(this.nextButton);

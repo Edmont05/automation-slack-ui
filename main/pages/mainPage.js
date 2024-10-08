@@ -153,6 +153,7 @@ class MainPage {
   async getNameChannels(){
     return getColumnTexts(this.nameChannels)
   }
+  
 }
 
 module.exports = new MainPage();
