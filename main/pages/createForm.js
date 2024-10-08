@@ -1,11 +1,7 @@
 const {
   untilIsLocated,
   untilIsVisible,
-  reloadAndWaitForElement,
   untilIsEnabled,
-  waitUntilElementsStops,
-  untilIsNotVisible,
-  removeElement,
 } = require("../../core/interactions/conditions");
 const { clickOn, setValue, sleep } = require("../../core/interactions/action");
 const { myByCss } = require("../../core/interactions/myBy");
@@ -14,7 +10,10 @@ class CreateForm {
   nameChannelInput = myByCss('input[data-qa="channel-name-input"]');
   nextButton = myByCss('button[data-qa="create-channel-next-button"]');
   spinnerIcon = myByCss('[data-qa="infinite_spinner"]');
-  optionsModal = myByCss('.ReactModalPortal')
+  optionsModal = myByCss(".ReactModalPortal");
+  nextButtonDisabled = myByCss(
+    '.c-button--disabled[data-qa="create-channel-next-button"]'
+  );
 
   errorMessage = myByCss('div[data-qa-error="true"]');
 
@@ -41,9 +40,14 @@ class CreateForm {
   async clickNext() {
     //await removeElement(this.optionsModal)
     await untilIsVisible(this.nextButton);
-    await untilIsEnabled(this.nextButton)
+    await untilIsEnabled(this.nextButton);
     await clickOn(this.nextButton);
   }
+
+  async disabledNext() {
+    return untilIsVisible(this.nextButtonDisabled);
+  }
+
   async visibleError() {
     await untilIsVisible(this.errorMessage);
   }
