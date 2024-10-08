@@ -220,7 +220,8 @@ class SettingChannelForm {
     deleteChannelButton = myByCss('button[class="c-button-unstyled sk_raspberry_red p-field p-field--button"]')
     canceldeleteChannelButton = myByCss('button[class="c-button c-button--outline c-button--medium"]')
     convertdeleteChannelButton = myByCss('button[class="c-button c-button--danger c-button--medium"]')
-
+    checkDelete = myByCss('[data-qa-label-type="inline"] input');
+    deleteButton  = myByCss('.c-button--danger') 
     
     changePrivateChannelButton = myByCss('body > div:nth-child(24) > div > div > div.c-sk-modal_footer > div > button.c-button.c-button--danger.c-button--medium')
     changePublicChannelButton = myByCss('body > div:nth-child(26) > div > div > div.c-sk-modal_footer > div > button.c-button.c-button--primary.c-button--medium')
@@ -239,6 +240,14 @@ class SettingChannelForm {
     async clickdeleteChannelButton() {
         await untilIsVisible(this.deleteChannelButton)
         await clickOn(this.deleteChannelButton)
+    }
+    async clickacceptedeleteChannelCheck() {
+        await untilIsVisible(this.checkDelete)
+        await clickOn(this.checkDelete)
+    }
+    async clickconfirmdeleteChannelButton() {
+        await untilIsVisible(this.deleteButton)
+        await clickOn(this.deleteButton)
     }
     async clickcanceldeleteChannelButton() {
         await untilIsVisible(this.canceldeleteChannelButton)
