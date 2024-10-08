@@ -12,6 +12,9 @@ class CreateForm {
     privateOption = myByCss('input[data-qa="private-option"]')
     createOmitButton = myByCss('button[data-qa="create-channel-next-button"]')
     createSubmitButton = myByCss('button[data-qa="create-channel-next-button"]')
+    omitPrivateButton = myByCss('button[data-qa="invite_to_workspace_skip_button"]')
+
+
     backButton = myByCss('button[class="c-button c-button--outline c-button--medium"]')
 
     
@@ -50,6 +53,12 @@ class CreateForm {
     async clickBack() {
         await untilIsVisible(this.backButton)
         await clickOn(this.backButton)
+    }
+
+    async clickomitPrivateButton() {
+        await untilIsVisible(this.omitPrivateButton)
+        await clickOn(this.omitPrivateButton)
+        sleep(1000);
     }
 
 }

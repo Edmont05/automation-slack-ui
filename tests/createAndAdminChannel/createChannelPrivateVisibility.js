@@ -19,7 +19,7 @@ describe('Test 5', function () {
     });
 
     after(async () => {
-        await myAfter();
+        // await myAfter();
     });
 
     tags('e2e').it('Test', async () => {
@@ -33,14 +33,13 @@ describe('Test 5', function () {
         await MainPage.clickOptionChannel();
 
         await CreateForm.isVisible();
-        await CreateForm.setNameChannel("private");
+        await CreateForm.setNameChannel("private4");
         await CreateForm.clickNext();
         await CreateForm.clickPrivateOption();
         await CreateForm.clickCreate();
+        await CreateForm.clickomitPrivateButton();
 
-
-        await AddUserForm.isVisiblePrivate();
-        await AddUserForm.clickOmit();
+        expect(await MainPage.getColumnsTextsName("private4")).to.not.include("private4");
 
     })
 });
