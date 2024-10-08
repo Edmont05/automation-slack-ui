@@ -1,6 +1,6 @@
 {
     "browser": {
-        "name": "firefox",
+        "name": "remote",
         "headless": false,
         "timeout": 50000,
         "maxWindows": true,

@@ -1,6 +1,6 @@
 const { By, Key } = require("selenium-webdriver");
 const myLogger = require("../tools/myLogger");
-const { myFindElement } = require("./conditions");
+const { myFindElement, myFindElements } = require("./conditions");
 
 /**
  * 

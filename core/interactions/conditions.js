@@ -44,6 +44,27 @@ exports.untilIsVisible = async (locator) => {
     await DriverFactory.myDriver.wait(until.elementIsVisible(element));
 };
 
+/**
+ *
+ * @param {By} locator 
+ */
+exports.removeElement = async (locator) => {
+    const element = await this.myFindElement(locator);
+    myLogger.info(`Removing element with locator: ${locator.value}`);
+    await DriverFactory.myDriver.executeScript("arguments[0].remove();", element);
+};
+
+/**
+ * 
+ * @param {By} locator 
+ */
+exports.untilIsEnabled = async (locator) => {
+    const element = await this.myFindElement(locator);
+    myLogger.info(`Checking if element is enabled with locator: ${locator.value}`);
+    await DriverFactory.myDriver.wait(until.elementIsEnabled(element));
+};
+
+
 exports.findUntilIsVisible = async (locator, timeout = 1000) => {
     try {
         // Localizar el elemento
