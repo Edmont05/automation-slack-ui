@@ -30,9 +30,6 @@ jobs:
           CI: true
         continue-on-error: true
 
-      - name: Check Allure results
-        run: ls -la allure-results
-
       - name: Get Allure history
         uses: actions/checkout@v4
         with:
