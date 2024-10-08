@@ -35,6 +35,6 @@ describe('Test 4', function () {
         await CreateForm.isVisible();
         await CreateForm.setNameChannel("asdasdasdasdasdasdasdadsasdasdasdasdasdasdasdadsasdasdasdasdasdasdasdadsasdasdasd");
         await CreateForm.visibleError();
-
+        expect(await CreateForm.getTextError()).to.equal('Los nombres de canal no pueden tener más de 80 caracteres.');
     })
 });

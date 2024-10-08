@@ -3,7 +3,7 @@ const {
   untilIsVisible,
   untilIsEnabled,
 } = require("../../core/interactions/conditions");
-const { clickOn, setValue, sleep } = require("../../core/interactions/action");
+const { clickOn, setValue, sleep, getText } = require("../../core/interactions/action");
 const { myByCss } = require("../../core/interactions/myBy");
 
 class CreateForm {
@@ -16,6 +16,7 @@ class CreateForm {
   );
 
   errorMessage = myByCss('div[data-qa-error="true"]');
+  textErrorMessage = myByCss('[data-qa-error="true"]>span');
 
   publicOption = myByCss('input[data-qa="public-option"]');
   privateOption = myByCss('input[data-qa="private-option"]');
@@ -76,6 +77,11 @@ class CreateForm {
     await untilIsVisible(this.omitPrivateButton);
     await clickOn(this.omitPrivateButton);
     sleep(1000);
+  }
+
+  async getTextError() {
+    await untilIsVisible(this.textErrorMessage)
+    return getText(this.textErrorMessage)
   }
 }
 
