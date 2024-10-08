@@ -7,7 +7,6 @@ const { myBefore, myAfter, myAfterScreen } = require("../../main/hooks");
 const MainPage = require("../../main/pages/mainPage");
 const CreateForm = require("../../main/pages/createForm");
 const AddUserForm = require("../../main/pages/addUserForm");
-const SettingChannelForm = require("../../main/pages/SettingChannelForm");
 
 describe("Test 1", function () {
   this.timeout(100000);
