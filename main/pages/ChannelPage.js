@@ -1,8 +1,10 @@
-const { untilIsLocated, untilIsVisible, reloadAndWaitForElement } = require("../../core/interactions/conditions");
-const { clickOn, setValue, getColumnTexts } = require("../../core/interactions/action");
+const { untilIsLocated, untilIsVisible, reloadAndWaitForElement, sleep } = require("../../core/interactions/conditions");
+const { clickOn, setValue, getColumnTexts, pressEnter, getText } = require("../../core/interactions/action");
 const { myByCss } = require("../../core/interactions/myBy");
 
 class ChannelPage {
+    homeButton = myByCss('button[data-qa="tab_rail_home_button"]')
+
 
     joinChannel = myByCss('div#C07MDGJF951 button[data-qa="join-channel"]')
     leaveChannel = myByCss('div#C07MDGJF951 button[data-qa="leave-channel"]')
@@ -11,10 +13,13 @@ class ChannelPage {
     typeFilter = myByCss('div[data-qa="channel_search_result"]')
 
     existData = myByCss('svg[data-qa="channel"]') 
-    emptyAlert = myByCss('[data-qa="virtual-list-item"] [data-qa="empty_state_wrapper"]')
+    emptyAlert = myByCss('[data-qa="virtual-list-item"] [data-qa="empty_state_wrapper"] [class="c-empty_state__title"]')
     
     optionChannelNames = myByCss('[data-qa="virtual-list-item"] .c-mrkdwn__highlight')
+    optionAllChannelNames = myByCss('[data-qa="virtual-list-item"][role="listitem"] span span span span')
 
+
+    
     async isLeaveVisible() {
         await untilIsLocated(this.leaveChannel)
     }
@@ -30,19 +35,22 @@ class ChannelPage {
     }
     async istypefilterVisible() {
         await untilIsLocated(this.typeFilter)
-
     }
     async isJoinVisible() {
         await untilIsLocated(this.joinChannel)
     }
 
+    async clickhomeButton() {
+        await untilIsVisible(this.homeButton)
+        await clickOn(this.homeButton)
+    }
 
 
-
-
+    
     async setCredentials(channel) {
         await untilIsVisible(this.searchInput);
         await setValue(this.searchInput, channel);
+        await pressEnter(this.searchInput)
     }
     async clickjoinChannel() {
         await untilIsVisible(this.joinChannel)
@@ -54,7 +62,7 @@ class ChannelPage {
     }
     async clickfirstOprionFilter() {
         await untilIsVisible(this.firstOprionFilter)
-        await clickOn(this.firstOprionFilter)
+        await pressEnter(this.firstOprionFilter)
     }
 
     //Filters Selects
@@ -74,7 +82,9 @@ class ChannelPage {
     otheroptionChannelSelect = myByCss('div[data-qa="undefined_option_2"]')
     
     sharedtypeoptionChannelSelect = myByCss('span[data-qa="shared"]')
-
+    async reload() {
+        await reloadAndWaitForElement(this.homeButton)
+    }
     
     async clickallChannelSelect() {
         await untilIsVisible(this.allChannelSelect)
@@ -116,6 +126,16 @@ class ChannelPage {
     async getNameChannelsSearch(){
         return getColumnTexts(this.optionChannelNames)
       }
+
+      async getAllNameChannelsSearch(){
+        return getColumnTexts(this.optionAllChannelNames)
+      }
+
+      async getTextEmpty() {
+        await untilIsVisible(this.emptyAlert)
+        return getText(this.emptyAlert)
+      }
+      
 }
 
 module.exports = new ChannelPage(); 

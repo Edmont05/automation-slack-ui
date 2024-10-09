@@ -97,6 +97,16 @@ exports.pressRightArrow = async (locator) => {
 /**
  * 
  * @param {By} locator 
+ */
+exports.pressDownArrow = async (locator) => {
+    const element = await myFindElement(locator);
+    myLogger.info(`Pressing Down Arrow on locator: ${locator.value}`);
+    await element.sendKeys(Key.ARROW_DOWN); 
+};
+
+/**
+ * 
+ * @param {By} locator 
  * @returns {Promise<string[]>}
  */
 exports.getColumnTexts = async (locator) => {

@@ -14,6 +14,7 @@ const {
   setValue,
   pressEnter,
   getColumnTexts,
+  pressDownArrow,
 } = require("../../core/interactions/action");
 const { myByCss } = require("../../core/interactions/myBy");
 const { Key } = require("selenium-webdriver");
@@ -49,14 +50,28 @@ class MainPage {
   async clickmanageChannel() {
     await untilIsVisible(this.manageChannel);
     await clickOn(this.manageChannel);
+
   }
   async clickadminOptionChannel() {
     await untilIsVisible(this.adminOptionChannel);
     await clickOn(this.adminOptionChannel);
+
   }
   async clickDerChannel() {
     await untilIsVisible(this.adminOptionChannel);
     await pressRightArrow(this.adminOptionChannel);
+    await sleep(500);
+    const activeElement = await this.getActiveElement();
+    await activeElement.sendKeys(Key.ENTER);
+  }
+
+  async clickDerChannel2() {
+    await untilIsVisible(this.adminOptionChannel);
+    await pressRightArrow(this.adminOptionChannel);
+    const activeElement1 = await this.getActiveElement();
+    await activeElement1.sendKeys(Key.ARROW_DOWN);
+    const activeElement2 = await this.getActiveElement();
+    await activeElement2.sendKeys(Key.ARROW_DOWN);
     await sleep(500);
     const activeElement = await this.getActiveElement();
     await activeElement.sendKeys(Key.ENTER);

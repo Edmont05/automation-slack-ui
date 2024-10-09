@@ -7,7 +7,7 @@ const { myBefore, myAfter, myAfterScreen } = require('../../main/hooks');
 const MainPage = require('../../main/pages/mainPage');
 const CreateForm = require('../../main/pages/createForm');
 const AddUserForm = require('../../main/pages/addUserForm');
-const SettingChannelForm = require('../../main/pages/SettingChannelForm');
+// const SettingChannelForm = require('../../main/pages/SettingChannelForm');
 const ChannelPage = require('../../main/pages/ChannelPage');
 
 describe('Test 16', function () {
@@ -24,7 +24,7 @@ describe('Test 16', function () {
         await myAfter();
     });
 
-    tags('e2e').it('Test', async () => {
+    tags('e2e').it('Filtrar por Propiedad con Resultados Nulos', async () => {
         await LoginPage.isVisible();
         await LoginPage.setCredentials(testConfig.credentials.username, testConfig.credentials.password);
         await LoginPage.clickLoginButton();
@@ -39,6 +39,7 @@ describe('Test 16', function () {
         await ChannelPage.clickotheroptionChannelSelect();
         await ChannelPage.isemptyAlertVisible();
 
+        expect(await ChannelPage.getTextEmpty()).to.equal('Sin resultados');
 
 
     })

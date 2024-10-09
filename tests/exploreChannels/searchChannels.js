@@ -24,7 +24,7 @@ describe("Test 11", function () {
     await myAfter();
   });
 
-  tags("e2e").it("Test", async () => {
+  tags("e2e").it("Búsqueda Básica de Canales", async () => {
     await LoginPage.isVisible();
     await LoginPage.setCredentials(
       testConfig.credentials.username,
@@ -38,12 +38,12 @@ describe("Test 11", function () {
     await MainPage.clickadminOptionChannel();
     await MainPage.clickDerChannel();
 
-    await ChannelPage.setCredentials("edmont");
-    await ChannelPage.clickfirstOprionFilter();
+    await ChannelPage.reload();
+    await ChannelPage.setCredentials("an");
     await ChannelPage.isfilterVisible();
 
     const channelNames = await ChannelPage.getNameChannelsSearch();
-    const containsAll = channelNames.some((name) => name.includes("edmon"));
+    const containsAll = channelNames.some((name) => name.includes("an"));
     expect(containsAll).to.be.true;
   });
 });

@@ -1,6 +1,6 @@
 {
     "browser": {
-        "name": "remote",
+        "name": "chrome",
         "headless": false,
         "timeout": 50000,
         "maxWindows": true,
