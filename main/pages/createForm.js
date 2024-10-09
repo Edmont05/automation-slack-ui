@@ -40,7 +40,8 @@ class CreateForm {
     await setValue(this.nameChannelInput, name);
   }
   async clickNext() {
-  //  await removeElement(this.optionsModal);
+    await sleep(2000);
+    // await removeElement(this.optionsModal);
     await untilIsVisible(this.nextButton);
     await untilIsEnabled(this.nextButton);
     await clickOn(this.nextButton);
@@ -77,7 +78,7 @@ class CreateForm {
   async clickomitPrivateButton() {
     await untilIsVisible(this.omitPrivateButton);
     await clickOn(this.omitPrivateButton);
-    sleep(1000);
+    await sleep(500);
   }
 
   async getTextError() {

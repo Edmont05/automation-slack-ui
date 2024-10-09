@@ -150,6 +150,9 @@ class MainPage {
   async isVisible() {
     await untilIsLocated(this.iconHome);
   }
+  async sleeping() {
+    await sleep(5000);
+  }
   async isVisibleMessages() {
     await untilIsLocated(this.message);
   }

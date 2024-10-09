@@ -7,10 +7,11 @@ const { myBefore, myAfter, myAfterScreen } = require('../../main/hooks');
 const MainPage = require('../../main/pages/mainPage');
 const CreateForm = require('../../main/pages/createForm');
 const AddUserForm = require('../../main/pages/addUserForm');
-const SettingChannelForm = require('../../main/pages/SettingChannelForm');
+
 
 describe('Test 42', function () {
-    this.timeout(50000);
+    this.timeout(100000);
+    var nameChannel = "";
     before(async () => {
         await myBefore();
     });
@@ -20,18 +21,38 @@ describe('Test 42', function () {
     });
 
     after(async () => {
-        // await myAfter();
+        await myAfter();
     });
 
     tags('e2e').it('Test', async () => {
         await LoginPage.isVisible();
-        await LoginPage.setCredentials(testConfig.credentials.username, testConfig.credentials.password);
+        await LoginPage.setCredentials(
+            testConfig.credentials.username,
+            testConfig.credentials.password
+        );
         await LoginPage.clickLoginButton();
         await LoginPage.clickLinkSlack();
 
         await MainPage.isVisible();
-        await MainPage.clickRightNameChannel('edmont2');
+        await MainPage.clickCreateNew();
+        await MainPage.clickOptionChannel();
+
+        await CreateForm.isVisible();
+        nameChannel = `an${Math.random().toString(36).substring(2, 8)}`.toLowerCase();
+        await CreateForm.setNameChannel(nameChannel);
+
+        await CreateForm.clickNext();
+        await CreateForm.clickPublicOption();
+        await CreateForm.clickCreate();
+
+        await AddUserForm.clickOmit();
+        
+        await MainPage.sleeping();
+        await MainPage.isVisible();
+        await MainPage.clickRightNameChannel(nameChannel);
         await MainPage.clickLeaveChannel();
         await MainPage.isVisible();
+        expect(await MainPage.getNameChannels()).to.not.include(nameChannel);
+        
     })
 });
