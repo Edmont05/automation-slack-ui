@@ -1,45 +1,49 @@
-const { expect } = require('chai');
-const tags = require('mocha-tags');
+const { expect } = require("chai");
+const tags = require("mocha-tags");
 
-const testConfig = require('../../testConfig.json');
-const LoginPage = require('../../main/pages/loginPage');
-const { myBefore, myAfter, myAfterScreen } = require('../../main/hooks');
-const MainPage = require('../../main/pages/mainPage');
-const CreateForm = require('../../main/pages/createForm');
-const AddUserForm = require('../../main/pages/addUserForm');
-const SettingChannelForm = require('../../main/pages/SettingChannelForm');
-const ChannelPage = require('../../main/pages/ChannelPage');
+const testConfig = require("../../testConfig.json");
+const LoginPage = require("../../main/pages/loginPage");
+const { myBefore, myAfter, myAfterScreen } = require("../../main/hooks");
+const MainPage = require("../../main/pages/mainPage");
+const CreateForm = require("../../main/pages/createForm");
+const AddUserForm = require("../../main/pages/addUserForm");
+const SettingChannelForm = require("../../main/pages/settingChannelForm");
+const ChannelPage = require("../../main/pages/ChannelPage");
 
-describe('Test 11', function () {
-    this.timeout(50000);
-    before(async () => {
-        await myBefore();
-    });
+describe("Test 11", function () {
+  this.timeout(50000);
+  before(async () => {
+    await myBefore();
+  });
 
-    afterEach(async function () {
-        await myAfterScreen.call(this);
-    });
+  afterEach(async function () {
+    await myAfterScreen.call(this);
+  });
 
-    after(async () => {
-        await myAfter();
-    });
+  after(async () => {
+    await myAfter();
+  });
 
-    tags('e2e').it('Test', async () => {
-        await LoginPage.isVisible();
-        await LoginPage.setCredentials(testConfig.credentials.username, testConfig.credentials.password);
-        await LoginPage.clickLoginButton();
-        await LoginPage.clickLinkSlack();
+  tags("e2e").it("Test", async () => {
+    await LoginPage.isVisible();
+    await LoginPage.setCredentials(
+      testConfig.credentials.username,
+      testConfig.credentials.password
+    );
+    await LoginPage.clickLoginButton();
+    await LoginPage.clickLinkSlack();
 
-        await MainPage.isVisible();
-        await MainPage.clickmanageChannel();
-        await MainPage.clickadminOptionChannel();
-        await MainPage.clickDerChannel();
+    await MainPage.isVisible();
+    await MainPage.clickmanageChannel();
+    await MainPage.clickadminOptionChannel();
+    await MainPage.clickDerChannel();
 
-        await ChannelPage.setCredentials("edmont");
-        await ChannelPage.clickfirstOprionFilter();
-        await ChannelPage.isfilterVisible();
+    await ChannelPage.setCredentials("edmont");
+    await ChannelPage.clickfirstOprionFilter();
+    await ChannelPage.isfilterVisible();
 
-
-
-    })
+    const channelNames = await ChannelPage.getNameChannelsSearch();
+    const containsAll = channelNames.some((name) => name.includes("edmon"));
+    expect(containsAll).to.be.true;
+  });
 });

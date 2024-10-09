@@ -1,5 +1,5 @@
 const { untilIsLocated, untilIsVisible, reloadAndWaitForElement } = require("../../core/interactions/conditions");
-const { clickOn, setValue } = require("../../core/interactions/action");
+const { clickOn, setValue, getColumnTexts } = require("../../core/interactions/action");
 const { myByCss } = require("../../core/interactions/myBy");
 
 class ChannelPage {
@@ -13,6 +13,8 @@ class ChannelPage {
     existData = myByCss('svg[data-qa="channel"]') 
     emptyAlert = myByCss('[data-qa="virtual-list-item"] [data-qa="empty_state_wrapper"]')
     
+    optionChannelNames = myByCss('[data-qa="virtual-list-item"] .c-mrkdwn__highlight')
+
     async isLeaveVisible() {
         await untilIsLocated(this.leaveChannel)
     }
@@ -110,7 +112,10 @@ class ChannelPage {
         await untilIsVisible(this.privatetypeoptionChannelSelect)
         await clickOn(this.privatetypeoptionChannelSelect)
     }
-    
+
+    async getNameChannelsSearch(){
+        return getColumnTexts(this.optionChannelNames)
+      }
 }
 
 module.exports = new ChannelPage(); 
