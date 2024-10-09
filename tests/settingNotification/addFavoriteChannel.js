@@ -9,7 +9,7 @@ const CreateForm = require('../../main/pages/createForm');
 const AddUserForm = require('../../main/pages/addUserForm');
 const SettingChannelForm = require('../../main/pages/SettingChannelForm');
 
-describe('Test 37', function () {
+describe('Test 34', function () {
     this.timeout(50000);
     before(async () => {
         await myBefore();
