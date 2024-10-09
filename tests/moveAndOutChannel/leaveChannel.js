@@ -24,7 +24,7 @@ describe('Test 42', function () {
         await myAfter();
     });
 
-    tags('e2e').it('Test', async () => {
+    tags('e2e').it('Abandonar Canal Siendo Miembro', async () => {
         await LoginPage.isVisible();
         await LoginPage.setCredentials(
             testConfig.credentials.username,

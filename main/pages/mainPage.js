@@ -31,7 +31,10 @@ class MainPage {
   nameChannels = myByCss(
     '[data-qa="virtual-list-item"] [data-qa-channel-sidebar-is-you="false"] span span'
   );
-
+  namePrivateChannels = myByCss(
+    '[data-qa-channel-sidebar-channel-type="private"] span span'
+  );
+  
   async clickCreateNew() {
     await untilIsVisible(this.iconCreateNew);
     await clickOn(this.iconCreateNew);
@@ -151,7 +154,7 @@ class MainPage {
     await untilIsLocated(this.iconHome);
   }
   async sleeping() {
-    await sleep(5000);
+    await sleep(2000);
   }
   async isVisibleMessages() {
     await untilIsLocated(this.message);
@@ -171,6 +174,10 @@ class MainPage {
   async getNameChannels(){
     return getColumnTexts(this.nameChannels)
   }
+  async getNamePrivateChannels(){
+    return getColumnTexts(this.namePrivateChannels)
+  }
+  
   
 }
 

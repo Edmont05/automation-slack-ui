@@ -23,7 +23,7 @@ describe('Test 26', function () {
         await myAfter();
     });
 
-    tags('e2e').it('Test', async () => {
+    tags('e2e').it('Iniciar Junta en el Canal', async () => {
         await LoginPage.isVisible();
         await LoginPage.setCredentials(testConfig.credentials.username, testConfig.credentials.password);
         await LoginPage.clickLoginButton();

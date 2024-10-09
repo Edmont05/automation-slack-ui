@@ -20,9 +20,9 @@ describe('Test 27', function () {
     });
 
     after(async () => {
-        // await myAfter();
+        await myAfter();
     });
-    tags('e2e').it('Test', async () => {
+    tags('e2e').it('Copiar Enlace de Junta Existente', async () => {
         await LoginPage.isVisible();
         await LoginPage.setCredentials(testConfig.credentials.username, testConfig.credentials.password);
         await LoginPage.clickLoginButton();
@@ -35,9 +35,7 @@ describe('Test 27', function () {
         await SettingChannelForm.isVisible();
         await SettingChannelForm.clickIconCallChannelButton();
         await SettingChannelForm.clickcopyLinkButtonChannelButton();
-        // await SettingChannelForm.isVisible();
-
-        // await verifyClipboardHasContent();
+        
 
     })
 });

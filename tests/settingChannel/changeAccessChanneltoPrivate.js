@@ -23,7 +23,7 @@ describe('Test 28', function () {
         await myAfter();
     });
 
-    tags('e2e').it('Test', async () => {
+    tags('e2e').it('Cambiar Acceso del Canal de Público a Privado', async () => {
         await LoginPage.isVisible();
         await LoginPage.setCredentials(testConfig.credentials.username, testConfig.credentials.password);
         await LoginPage.clickLoginButton();
@@ -37,9 +37,11 @@ describe('Test 28', function () {
         await SettingChannelForm.clickSettingTab();
         await SettingChannelForm.clickchangePrivateChannelButton();
         await SettingChannelForm.clickchangePropertyChannel();
-        // await SettingChannelForm.setinputEditDescripcionChannel('edit');
-        // await SettingChannelForm.clickbuttonSaveEditDescripcionChannel();
-        // await SettingChannelForm.isVisible();
+        await SettingChannelForm.clickcloseSettinglButton();
+        
+        await MainPage.sleeping();
+        await MainPage.isVisible();
+        expect(await MainPage.getNamePrivateChannels()).to.include('edmont2');
 
     })
 });

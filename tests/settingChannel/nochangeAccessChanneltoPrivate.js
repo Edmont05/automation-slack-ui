@@ -23,7 +23,7 @@ describe('Test 30', function () {
         await myAfter();
     });
 
-    tags('e2e').it('Test', async () => {
+    tags('e2e').it('Intento de Cambiar Acceso sin Permisos', async () => {
         await LoginPage.isVisible();
         await LoginPage.setCredentials(testConfig.credentialsGuest.username, testConfig.credentialsGuest.password);
         await LoginPage.clickLoginButton();
@@ -35,13 +35,6 @@ describe('Test 30', function () {
 
         await SettingChannelForm.isVisibleGuest();
         await SettingChannelForm.clickSettingTab();
-        // await SettingChannelForm.clickchangePrivateChannelButton();
-        // await SettingChannelForm.clickchangePropertyChannel();
-
-
-        // await SettingChannelForm.setinputEditDescripcionChannel('edit');
-        // await SettingChannelForm.clickbuttonSaveEditDescripcionChannel();
-        // await SettingChannelForm.isVisible();
 
     })
 });

@@ -15,6 +15,7 @@ class SettingChannelForm {
     iconCallChannelButton = myByCss('button[data-qa="call"]')
     initButtonChannelButton = myByCss('button[data-qa="huddle_button_menu_item"]')
     copyLinkButtonChannelButton = myByCss('button[data-qa="copy-link-menu-item"]')
+    closeSettinglButton = myByCss('button[data-qa="sk_close_modal_button"]')
 
 
     // Secction Detail
@@ -96,6 +97,11 @@ class SettingChannelForm {
     async clickcopyLinkButtonChannelButton() {
         await untilIsVisible(this.copyLinkButtonChannelButton)
         await clickOn(this.copyLinkButtonChannelButton)
+    }
+
+    async clickcloseSettinglButton() {
+        await untilIsVisible(this.closeSettinglButton)
+        await clickOn(this.closeSettinglButton)
     }
 
     // Secction About
@@ -223,7 +229,7 @@ class SettingChannelForm {
     checkDelete = myByCss('[data-qa-label-type="inline"] input');
     deleteButton  = myByCss('.c-button--danger') 
     
-    changePrivateChannelButton = myByCss('body > div:nth-child(24) > div > div > div.c-sk-modal_footer > div > button.c-button.c-button--danger.c-button--medium')
+    changePrivateChannelButton = myByCss('[class="c-sk-modal_footer_actions"] [class="c-button c-button--danger c-button--medium"]')
     changePublicChannelButton = myByCss('body > div:nth-child(26) > div > div > div.c-sk-modal_footer > div > button.c-button.c-button--primary.c-button--medium')
     changePublicChannelButton2 = myByCss('button[data-qa="private-to-public-modal-convert-btn"]')
     changearchiveChannelButton = myByCss('button[data-qa="archive_modal_go"]')
@@ -258,13 +264,8 @@ class SettingChannelForm {
         await clickOn(this.convertdeleteChannelButton)
     }
     async clickchangePropertyChannel() {
-        try {
             await findUntilIsVisible(this.changePrivateChannelButton)
             await clickOn(this.changePrivateChannelButton)
-        } catch (error) {
-            await findUntilIsVisible(this.changePublicChannelButton)
-            await clickOn(this.changePublicChannelButton)
-        }
     }
     async clickchangePropertyChanneltoPublic() {
         await findUntilIsVisible(this.changePublicChannelButton2)

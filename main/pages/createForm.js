@@ -40,7 +40,7 @@ class CreateForm {
     await setValue(this.nameChannelInput, name);
   }
   async clickNext() {
-    await sleep(2000);
+    await sleep(5000);
     // await removeElement(this.optionsModal);
     await untilIsVisible(this.nextButton);
     await untilIsEnabled(this.nextButton);
