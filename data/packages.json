@@ -1,1 +1,1 @@
-{"uid":"83edc06c07f9ae9e47eb6dd1b683e4e2","children":[{"name":"tests.moveAndOutChannel.leaveChannel.js","children":[{"name":"Test","uid":"d93917c04ff1e8d8","parentUid":"d21b9560fed3e7492469a30a2174ee10","status":"passed","time":{"start":1728483356118,"stop":1728483396395,"duration":40277},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":0,"retriesStatusChange":false,"parameters":[],"tags":[]}],"uid":"tests.moveAndOutChannel.leaveChannel.js"}],"name":"packages"}
+{"uid":"83edc06c07f9ae9e47eb6dd1b683e4e2","children":[],"name":"packages"}
