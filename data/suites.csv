@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Wed Oct 09 07:35:11 GMT 2024","Wed Oct 09 07:36:01 GMT 2024","50003","Test 16","","","","","Filtrar por Propiedad con Resultados Nulos",""
+"passed","Wed Oct 09 07:29:21 GMT 2024","Wed Oct 09 07:30:05 GMT 2024","43827","Test 11","","","","","Búsqueda Básica de Canales",""
+"passed","Wed Oct 09 07:34:20 GMT 2024","Wed Oct 09 07:34:54 GMT 2024","34044","Test 15","","","","","Búsqueda de Canal Inexistente",""
+"passed","Wed Oct 09 07:33:06 GMT 2024","Wed Oct 09 07:33:55 GMT 2024","49111","Test 14","","","","","Combinación de Filtros",""
+"broken","Wed Oct 09 07:30:16 GMT 2024","Wed Oct 09 07:31:06 GMT 2024","50007","Test 12","","","","","Filtrar Canales por Propiedad",""
+"passed","Wed Oct 09 07:32:08 GMT 2024","Wed Oct 09 07:32:47 GMT 2024","38767","Test 13","","","","","Filtrar Canales por Tipo",""
