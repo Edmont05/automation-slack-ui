@@ -8,7 +8,7 @@ const MainPage = require('../../main/pages/mainPage');
 const CreateForm = require('../../main/pages/createForm');
 const AddUserForm = require('../../main/pages/addUserForm');
 const ChannelPage = require('../../main/pages/ChannelPage');
-const SettingChannelForm = require('../../main/pages/settingChannelForm');
+const SettingChannelForm = require('../../main/pages/SettingChannelForm');
 
 describe('Test 14', function () {
     this.timeout(100000);
