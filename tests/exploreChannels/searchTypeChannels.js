@@ -7,7 +7,7 @@ const { myBefore, myAfter, myAfterScreen } = require("../../main/hooks");
 const MainPage = require("../../main/pages/mainPage");
 const CreateForm = require("../../main/pages/createForm");
 const AddUserForm = require("../../main/pages/addUserForm");
-const SettingChannelForm = require("../../main/pages/SettingChannelForm");
+const SettingChannelForm = require("../../main/pages/settingChannelsFrom");
 const ChannelPage = require("../../main/pages/ChannelPage");
 
 describe("Test 13", function () {
