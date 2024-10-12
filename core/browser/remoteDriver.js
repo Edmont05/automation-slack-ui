@@ -18,7 +18,7 @@ module.exports = class RemoteDriver {
       myLogger.info(`Creating Driver with configuration: ${JSON.stringify(capabilities, null, 2)}`)
 
       return await new Builder().
-        usingServer("https://helloworld_Id850G:pscaNWu7bSbEej8Jjyq3@hub-cloud.browserstack.com/wd/hub").
+        usingServer("https://eddygeovanymonta_QK0U7a:xFqkR5dzvzWDLdVKhfZv@hub-cloud.browserstack.com/wd/hub").
         withCapabilities(capabilities).
         build();
     })();

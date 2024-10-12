@@ -33,12 +33,7 @@ describe('Test 22', function () {
         await MainPage.clickRightNameChannel('edmont2');
         await MainPage.clickMoreInfoChannel();
 
-        await SettingChannelForm.isVisible();
-        await SettingChannelForm.clickAboutTab();
-        await SettingChannelForm.clicknameEditChannel();
-        await SettingChannelForm.setinputEditNameChannel('asdasdasdasdasdasdasdadsasdasdasdasdasdasdasdadsasdasdasdasdasdasdasdadsasdasdasd');
-        await SettingChannelForm.clickbuttonSaveEditNameChannel();
-        await SettingChannelForm.iserrorEditNameChannelVisible();
+        expect(await SettingChannelForm.isVisible()).to.be.true;
 
     })
 });

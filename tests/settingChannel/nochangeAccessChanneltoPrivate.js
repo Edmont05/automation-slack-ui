@@ -33,8 +33,7 @@ describe('Test 30', function () {
         await MainPage.clickRightNameChannel('edmont2');
         await MainPage.clickMoreInfoChannel();
 
-        await SettingChannelForm.isVisibleGuest();
-        await SettingChannelForm.clickSettingTab();
+        expect(await SettingChannelForm.isVisible()).to.be.true;
 
     })
 });

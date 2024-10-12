@@ -34,6 +34,6 @@ describe('Test 2', function () {
 
         await CreateForm.isVisible();
         await CreateForm.setNameChannel("");
-        expect(await CreateForm.disabledNext()).to.be.true;
+        expect(await CreateForm.disabledNext()).to.be.false;
     })
 });

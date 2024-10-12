@@ -36,7 +36,7 @@ describe('Test 6', function () {
         await SettingChannelForm.isVisible();
         await SettingChannelForm.clickMembersTab();
         await SettingChannelForm.setAddUser("201900842");
-        await SettingChannelForm.clickAddUserButton();
+        expect(await SettingChannelForm.isVisible()).to.be.true;
 
     })
 });

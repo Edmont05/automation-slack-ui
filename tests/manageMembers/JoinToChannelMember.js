@@ -36,8 +36,6 @@ describe('Test 9', function () {
         await MainPage.clickDerChannel();
 
         await ChannelPage.isLeaveVisible();
-
-
-
+        expect(await SettingChannelForm.isVisible()).to.be.true;
     })
 });

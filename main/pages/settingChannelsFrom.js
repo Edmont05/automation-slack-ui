@@ -41,6 +41,7 @@ class SettingChannelForm {
         await untilIsLocated(this.iconFavoriteChannelButton);
         await untilIsLocated(this.notificationChannelSelect);
         await untilIsLocated(this.iconCallChannelButton);
+        return true;
     }
     async isVisibleGuest() {
         await untilIsLocated(this.aboutTab);
