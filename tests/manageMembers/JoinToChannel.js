@@ -34,10 +34,17 @@ describe("Test 8", function () {
     await LoginPage.clickLinkSlack();
 
     await MainPage.isVisible();
-    await MainPage.clickmanageChannel();
-    await MainPage.clickadminOptionChannel();
-    await MainPage.clickDerChannel();
-
+    await MainPage.clickRightNameChannel("edmont");
+    await MainPage.clickMoreInfoChannel();
     expect(await SettingChannelForm.isVisible()).to.be.true;
+
+    // await MainPage.isVisible();
+    // await MainPage.isVisible();
+    // await MainPage.clickRightChannelAddUser();
+    // await MainPage.clickMoreInfoChannel();
+
+    // await MainPage.clickmanageChannel();
+    // await MainPage.clickadminOptionChannel();
+    // await MainPage.clickDerChannel();
   });
 });

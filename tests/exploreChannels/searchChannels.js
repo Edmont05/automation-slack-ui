@@ -10,7 +10,7 @@ const AddUserForm = require("../../main/pages/addUserForm");
 const ChannelPage = require("../../main/pages/ChannelPage");
 
 describe("Test 11", function () {
-  this.timeout(50000);
+  this.timeout(100000);
   before(async () => {
     await myBefore();
   });

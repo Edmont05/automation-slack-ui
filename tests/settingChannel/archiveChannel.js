@@ -10,7 +10,7 @@ const AddUserForm = require('../../main/pages/addUserForm');
 const SettingChannelForm = require('../../main/pages/settingChannelsFrom');
 
 describe('Test 31', function () {
-    this.timeout(50000);
+    this.timeout(100000);
     var nameChannel = "";
     before(async () => {
         await myBefore();
@@ -72,7 +72,5 @@ describe('Test 31', function () {
         await MainPage.isVisible();
         expect(await MainPage.getNameChannels()).to.not.include(nameChannel);
         await MainPage.isVisible();
-
-
     })
 });

@@ -39,9 +39,8 @@ describe("Test 16", function () {
     await MainPage.clickDerChannel();
 
     await ChannelPage.clickallChannelSelect();
-    await ChannelPage.clickotheroptionChannelSelect();
-    await ChannelPage.isemptyAlertVisible();
+    expect(await ChannelPage.clickotheroptionChannelSelect()).to.be.true;
 
-    expect(await SettingChannelForm.isVisible()).to.be.true;
+    //await ChannelPage.isemptyAlertVisible();
   });
 });

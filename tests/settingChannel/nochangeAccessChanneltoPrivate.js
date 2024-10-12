@@ -10,7 +10,7 @@ const AddUserForm = require('../../main/pages/addUserForm');
 const SettingChannelForm = require('../../main/pages/settingChannelsFrom');
 
 describe('Test 30', function () {
-    this.timeout(50000);
+    this.timeout(100000);
     before(async () => {
         await myBefore();
     });

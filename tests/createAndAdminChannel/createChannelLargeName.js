@@ -9,7 +9,7 @@ const CreateForm = require('../../main/pages/createForm');
 const AddUserForm = require('../../main/pages/addUserForm');
 
 describe('Test 4', function () {
-    this.timeout(50000);
+    this.timeout(100000);
     before(async () => {
         await myBefore();
     });

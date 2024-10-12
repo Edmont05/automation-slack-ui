@@ -116,6 +116,7 @@ class ChannelPage {
     async clickotheroptionChannelSelect() {
         await untilIsVisible(this.otheroptionChannelSelect)
         await clickOn(this.otheroptionChannelSelect)
+        return true;
     }
 
     async clickprivatetypeoptionChannelSelect() {

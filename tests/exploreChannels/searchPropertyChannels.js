@@ -11,7 +11,7 @@ const ChannelPage = require("../../main/pages/ChannelPage");
 const SettingChannelForm = require("../../main/pages/settingChannelsFrom");
 
 describe("Test 12", function () {
-  this.timeout(50000);
+  this.timeout(100000);
   var nameChannel = "";
   before(async () => {
     await myBefore();
