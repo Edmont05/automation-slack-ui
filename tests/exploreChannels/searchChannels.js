@@ -38,11 +38,11 @@ describe("Test 11", function () {
     await MainPage.clickDerChannel();
 
     await ChannelPage.reload();
-    await ChannelPage.setCredentials("an");
+    await ChannelPage.setCredentials("edmont");
     await ChannelPage.isfilterVisible();
 
     const channelNames = await ChannelPage.getNameChannelsSearch();
-    const containsAll = channelNames.some((name) => name.includes("an"));
+    const containsAll = channelNames.some((name) => name.includes("edmont"));
     expect(containsAll).to.be.true;
   });
 });
